@@ -1,0 +1,8 @@
+1. Docker MLFlow
+	1.1. Descargar .sh de anaconda3
+	1.2. Descargar get-pip.py
+	1.3. Montar imagen con Dockerfile
+		docker build --network=host -t mlflow_tutorial .
+
+2. Docker compose (dentro de la carpeta debe estar Docker/ y .yml)
+	2.1. docker-compose up
