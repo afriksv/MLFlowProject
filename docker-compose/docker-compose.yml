@@ -1,0 +1,24 @@
+version: "3.3"
+services:
+  postgre_db:
+    build:
+      context: ./Docker
+      dockerfile: db.Dockerfile
+    volumes:
+      - /home/aiops-user/dockerVolumes3/postgres:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_PASSWORD = secret
+      
+  mlflow:
+    image: mlflow_tutorial #mlflow_conda #probandoo es la imagen que no hay problema
+    entrypoint: /bin/bash
+    ports:
+      - "3306:3306"
+    stdin_open: true
+    tty: true
+    network_mode: "host"
+    environment:
+      MLFLOW_TRACKING_URI: 'postgresql://mlflow:mlflow@localhost/mlflow'
+      MLFLOW_CONDA_HOME: '/root/anaconda3/' #para que encuentre ejecutable de conda
