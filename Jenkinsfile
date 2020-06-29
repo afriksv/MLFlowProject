@@ -12,7 +12,7 @@ pipeline {
             {
             steps{
                 sh '''
-                    docker build -t --network=host mlflow-image .
+                    docker build --network=host -t mlflow-image .
                 '''
                 }
             }
