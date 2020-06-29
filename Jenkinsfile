@@ -2,13 +2,13 @@ pipeline {
     agent any
     stages
        {
-        stages('Checkout-git') 
+        stage('Checkout-git') 
             {
             steps{
                 git poll: true, url:'https://github.com/afriksv/MLFlowProject.git'
                 }
             }
-        stages('Build-mlflow-container') 
+        stage('Build-mlflow-container') 
             {
             steps{
                 sh '''
@@ -16,7 +16,7 @@ pipeline {
                 '''
                 }
             }
-        stages('Delete-mlflow-container') 
+        stage('Delete-mlflow-container') 
             {
             steps{
                 sh '''
