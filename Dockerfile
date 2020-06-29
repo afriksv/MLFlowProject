@@ -2,13 +2,14 @@ FROM amazonlinux
 
 WORKDIR /ml
 
-COPY Anaconda3-2020.02-Linux-x86_64.sh .
-COPY get-pip.py .
-
+RUN yum install wget -y
+RUN wget https://repo.continuum.io/archive/Anaconda3-2020.02-Linux-x86_64.sh
 RUN bash Anaconda3-2020.02-Linux-x86_64.sh -b
 RUN rm Anaconda3-2020.02-Linux-x86_64.sh
 
+RUN wget https://bootstrap.pypa.io/get-pip.py
 RUN python get-pip.py
+
 RUN yum install -y git \
     && yum install -y gcc \
     && yum install -y python3 \
