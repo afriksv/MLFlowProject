@@ -6,7 +6,7 @@ pipeline {
         stages('Checkout-git') 
             {
             steps{
-                git poll: true, url:https://github.com/afriksv/MLFlowProject.git
+                git poll: true, url:'https://github.com/afriksv/MLFlowProject.git'
                 }
             }
         }
