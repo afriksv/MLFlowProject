@@ -20,7 +20,7 @@ pipeline {
             {
             steps{
                 sh '''
-                    docker rmi mlflow-image
+                    docker rmi mlflow_tutorial
                 '''
                 }
             }
