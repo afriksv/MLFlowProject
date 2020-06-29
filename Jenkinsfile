@@ -9,7 +9,7 @@ pipeline {
                 git poll: true, url:'https://github.com/afriksv/MLFlowProject.git'
                 }
             }
-        }
+        
         stages('Build-mlflow-container') 
             {
             steps{
@@ -18,7 +18,7 @@ pipeline {
                 '''
                 }
             }
-        }
+        
         stages('Delete-mlflow-container') 
             {
             steps{
@@ -27,6 +27,6 @@ pipeline {
                 '''
                 }
             }
-        }
+        
 
 }
