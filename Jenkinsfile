@@ -16,13 +16,22 @@ pipeline {
                 '''
                 }
             }
-        stage('Delete-mlflow-container') 
+        stage('Docker-compose up') 
+            {
+            steps{
+                sh '''
+                    cd docker-compose
+                    docker-compose up
+                '''
+                }
+            }
+        /*stage('Delete-mlflow-container') 
             {
             steps{
                 sh '''
                     docker rmi mlflow-image
                 '''
                 }
-            }
+            }*/
       }
 }
