@@ -16,15 +16,30 @@
                 '''
                 }
             }
-        stage('Docker-compose') 
+        stage('Desplegar') 
             {
-            steps{
-                sh '''
-                    cd docker-compose
-                    docker-compose up
-                '''
+              parallel
+              {
+                stage('Docker-compose')
+                {
+                  steps{
+                      sh '''
+                        cd docker-compose
+                        docker-compose up
+                      '''
+                      } 
                 }
-            }
+                stage('Run experiment') 
+                {
+                agent { docker { image 'docker-compose_mlflow_1' } }
+                steps{
+                    sh '''
+                      sleep 10
+                      mlflow run mlflow/examples/sklearn_elasticnet_wine
+                    '''
+                    }
+                }
+              }
         /*stage('Delete-mlflow-container') 
             {
             steps{
@@ -33,5 +48,6 @@
                 '''
                 }
             }*/
+          }
       }
-}
+  }
