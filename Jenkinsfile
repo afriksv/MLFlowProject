@@ -12,7 +12,8 @@
             {
             steps{
                 sh '''
-                    docker images
+                    docker-compose down
+                    docker rmi mlflow_tutorial
                     docker build --network=host -t mlflow_tutorial .
                     docker images
                 '''
