@@ -35,7 +35,8 @@
                 steps{
                     sh '''
                       export COMPOSE_INTERACTIVE_NO_CLI=1
-                      docker exec -it docker-compose_mlflow_1 /bin/bash
+                      //docker exec -it docker-compose_mlflow_1 /bin/bash
+                      docker exec --tty docker-compose_mlflow_1 /bin/bash
                       /*docker start docker-compose_mlflow_1
                       docker attach docker-compose_mlflow_1*/
                       ls
