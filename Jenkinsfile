@@ -37,7 +37,10 @@
                       export COMPOSE_INTERACTIVE_NO_CLI=1
                       docker attach docker-compose_mlflow_1
                       ls
+                      /* cd mlflow
+                      mlflow run exmaples/sklearn_elasticnet_diabetes/linux*/
                       exit
+                      
                     '''
                     }
                 }
