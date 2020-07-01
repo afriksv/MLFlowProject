@@ -34,6 +34,7 @@
                 {
                 steps{
                     sh '''
+                      export COMPOSE_INTERACTIVE_NO_CLI=1
                       docker attach docker-compose_mlflow_1
                       ls
                       exit
