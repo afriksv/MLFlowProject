@@ -32,11 +32,11 @@
             }
         stage('Run experiment') 
                 {
-                agent { docker { image 'docker-compose_mlflow_1' } }
                 steps{
                     sh '''
-                      sleep 10
-                      mlflow run mlflow/examples/sklearn_elasticnet_wine
+                      docker attach docker-compose_mlflow_1
+                      ls
+                      exit
                     '''
                     }
                 }
