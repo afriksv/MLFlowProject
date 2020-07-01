@@ -19,17 +19,14 @@
                 '''
                 }
             }
-        stage('Desplegar') 
+        stage('Docker-compose') 
             {
-                stage('Docker-compose')
-                {
-                  steps{
-                      sh '''
-                        cd docker-compose
-                        docker-compose up -d
-                      '''
-                      } 
-                }
+              steps{
+                    sh '''
+                      cd docker-compose
+                      docker-compose up -d
+                    '''
+                   } 
             }
         stage('Run experiment') 
                 {
