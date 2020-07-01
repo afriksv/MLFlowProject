@@ -21,8 +21,6 @@
             }
         stage('Desplegar') 
             {
-              parallel
-              {
                 stage('Docker-compose')
                 {
                   steps{
@@ -32,7 +30,8 @@
                       '''
                       } 
                 }
-                /*stage('Run experiment') 
+            }
+        stage('Run experiment') 
                 {
                 agent { docker { image 'docker-compose_mlflow_1' } }
                 steps{
@@ -41,16 +40,6 @@
                       mlflow run mlflow/examples/sklearn_elasticnet_wine
                     '''
                     }
-                }*/
-              }
-        /*stage('Delete-mlflow-container') 
-            {
-            steps{
-                sh '''
-                    docker rmi mlflow_tutorial
-                '''
                 }
-            }*/
-          }
       }
   }
