@@ -35,7 +35,7 @@
                 steps{
                     sh '''
                       export COMPOSE_INTERACTIVE_NO_CLI=1
-                      docker exec --tty docker-compose_mlflow_1 /bin/bash -c "ls && mlflow run mlflow/examples/sklearn_elasticnet_diabetes/linux"                                       
+                      docker exec --tty docker-compose_mlflow_1 /bin/bash -c "ls && mlflow run mlflow/examples/sklearn_elasticnet_diabetes/linux --no-conda"                                       
                     '''
                     }
                 }
