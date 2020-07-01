@@ -19,6 +19,7 @@ RUN yum install -y git \
 
 RUN pip3 install mlflow \
     && pip3 install scikit-learn \
+    && pip3 install matplotlib \
     && pip3 install psycopg2-binary
 
 RUN cd /ml && git clone https://github.com/mlflow/mlflow
