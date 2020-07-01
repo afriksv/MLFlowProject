@@ -35,7 +35,8 @@
                 steps{
                     sh '''
                       export COMPOSE_INTERACTIVE_NO_CLI=1
-                      docker exec --tty docker-compose_mlflow_1 /bin/bash -c "ls && mlflow run mlflow/examples/sklearn_elasticnet_diabetes/linux --no-conda"                                       
+                      docker exec --tty docker-compose_mlflow_1 /bin/bash -c "ls && mlflow run mlflow/examples/sklearn_elasticnet_diabetes/linux --no-conda" 
+                      docker exec --ty docker-compose_mlflow_1 /bin/bash -c "mlflow models serve -m /home/aiops-user/artifact_root/0/edb6344e714d40389afc704f5f0ba2b8/artifacts/model -h 0.0.0.0 -p 5000"
                     '''
                     }
                 }
