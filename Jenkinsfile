@@ -36,7 +36,7 @@
                     sh '''
                       export COMPOSE_INTERACTIVE_NO_CLI=1
                       docker exec --tty docker-compose_mlflow_1 /bin/bash -c "ls && mlflow run MLFlowProject/mlflow-master/examples/sklearn_elasticnet_diabetes/linux --no-conda" 
-                      docker exec --tty docker-compose_mlflow_1 /bin/bash -c "mlflow models serve -m ../home/aiops-user/artifact_root/0/*/artifacts/model --no-conda -h 0.0.0.0 -p 5000 &"
+                      docker exec --tty docker-compose_mlflow_1 /bin/bash -c "mlflow models serve -m ../home/aiops-user/artifact_root/0/*/artifacts/model --no-conda -h 0.0.0.0 -p 5000"
                     '''
                     }
                 }
