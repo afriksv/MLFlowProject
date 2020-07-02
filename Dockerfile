@@ -22,4 +22,5 @@ RUN pip3 install mlflow \
     && pip3 install matplotlib \
     && pip3 install psycopg2-binary
 
+RUN git clone https://github.com/afriksv/MLFlowProject.git
 RUN rm -f /usr/bin/python && ln -s /usr/bin/python3 /usr/bin/python   
