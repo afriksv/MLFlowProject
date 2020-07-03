@@ -1,11 +1,14 @@
-def buildNumber = env.BUILD_NUMBER as int
-if (buildNumber > 1) milestone(buildNumber - 1)
-milestone(buildNumber)
-
 pipeline {
     agent any
     stages
        {
+        stage('Stop Old Build') 
+           {
+            steps {
+                milestone label: '', ordinal:  Integer.parseInt(env.BUILD_ID) - 1
+                milestone label: '', ordinal:  Integer.parseInt(env.BUILD_ID)
+            }
+        }
         stage('Checkout-git') 
             {
             steps{
