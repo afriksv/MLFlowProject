@@ -1,1 +1,1 @@
-echo "Hola mundo. He hecho cambiosx2*2"
+echo "Hola mundo. He hecho cambiosx2x2x2"
