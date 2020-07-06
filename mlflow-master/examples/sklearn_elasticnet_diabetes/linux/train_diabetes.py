@@ -33,11 +33,18 @@ from sklearn import datasets
 # Load Diabetes datasets
 diabetes = datasets.load_diabetes()
 X = diabetes.data
+
+aux=X;
+X=[];
+for i,j in enumerate(aux):
+  X.append(aux[i][0:9])
+
 y = diabetes.target
 
 # Create pandas DataFrame for sklearn ElasticNet linear_model
 Y = np.array([y]).transpose()
 d = np.concatenate((X, Y), axis=1)
+diabetes.feature_names.pop()#ANADIR
 cols = diabetes.feature_names + ['progression']
 data = pd.DataFrame(d, columns=cols)
 
@@ -91,6 +98,7 @@ if __name__ == "__main__":
     mlflow.log_metric("r2", r2)
     mlflow.log_metric("mae", mae)
     mlflow.sklearn.log_model(lr, "model")
+
 
     # Compute paths
     eps = 5e-3  # the smaller it is the longer is the path
