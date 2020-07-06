@@ -37,14 +37,14 @@ X = diabetes.data
 aux=X;
 X=[];
 for i,j in enumerate(aux):
-  X.append(aux[i][0:9])
+  X.append(aux[i][1:10])
 
 y = diabetes.target
 
 # Create pandas DataFrame for sklearn ElasticNet linear_model
 Y = np.array([y]).transpose()
 d = np.concatenate((X, Y), axis=1)
-diabetes.feature_names.pop()#ANADIR
+diabetes.feature_names.pop(0)#ANADIR
 cols = diabetes.feature_names + ['progression']
 data = pd.DataFrame(d, columns=cols)
 
