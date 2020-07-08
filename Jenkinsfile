@@ -22,7 +22,8 @@ pipeline {
                     cd docker-compose
                     docker-compose down
                     cd ..
-                    
+                    docker build --network=host -t mlflow_tutorial .
+                    docker rm mlflow_tutorial
                     docker build --network=host -t mlflow_tutorial .
                     docker images
                 '''
