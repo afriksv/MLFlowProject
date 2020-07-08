@@ -35,11 +35,11 @@ diabetes = datasets.load_diabetes()
 X = diabetes.data
 
 ##CAMIAR MODELO
-#aux=X;
-#X=[];
-#for i,j in enumerate(aux):
-#  X.append(aux[i][1:10])
-##
+aux=X;
+X=[];
+for i,j in enumerate(aux):
+  X.append(aux[i][1:10])
+#
 y = diabetes.target
 
 # Create pandas DataFrame for sklearn ElasticNet linear_model
@@ -47,7 +47,7 @@ Y = np.array([y]).transpose()
 d = np.concatenate((X, Y), axis=1)
 
 ##CAMBIAR MODELO
-#diabetes.feature_names.pop(0)#ANADIR
+diabetes.feature_names.pop(0)#ANADIR
 
 cols = diabetes.feature_names + ['progression']
 data = pd.DataFrame(d, columns=cols)
