@@ -35,7 +35,7 @@ diabetes = datasets.load_diabetes()
 X = diabetes.data
 
 ##CAMIAR MODELO
-aux=X;
+#aux=X;
 #X=[];
 #for i,j in enumerate(aux):
 #  X.append(aux[i][1:10])
